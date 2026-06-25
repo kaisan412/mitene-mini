@@ -8,7 +8,7 @@ app.add_middleware(
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )
 
 
@@ -18,9 +18,16 @@ def get_photos():
         {
             "id": 1,
             "title": "初めてのミルク",
+            "description": "赤ちゃんが初めてミルクを飲む瞬間の写真です。とても可愛らしい表情をしています。",
         },
         {
             "id": 2,
             "title": "家族写真",
+            "description": "家族で撮影した素敵な写真です。笑顔が素敵です。",
+        },
+        {
+            "id": 3,
+            "title": "旅行の思い出",
+            "description": "旅行で撮影した素敵な写真です。景色が美しかったです。",
         },
     ]
