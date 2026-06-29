@@ -1,0 +1,21 @@
+.photo-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.photo-card__image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.photo-card__title {
+  margin: 0;
+}
+
+.photo-card__description {
+  color: #666;
+}

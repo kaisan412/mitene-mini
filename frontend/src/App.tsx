@@ -1,11 +1,13 @@
+import PhotoList from "./components/PhotoList";
 import { useEffect, useState } from "react";
-import PhotoCard from "./components/PhotoCard";
+import Header from "./components/Header";
 
 //型定義
 type Photo = {
   id: number;
   title: string;
   description: string;
+  image_url: string;
 };
 
 function App() {
@@ -21,16 +23,10 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>みてねミニ</h1>
-      {photos.map((photo) => (
-        <PhotoCard
-          key={photo.id}
-          title={photo.title}
-          description={photo.description}
-        />
-      ))}
-    </div>
+    <>
+      <Header />
+      <PhotoList photos={photos} />
+    </>
   );
 }
 
