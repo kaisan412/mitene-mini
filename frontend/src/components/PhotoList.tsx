@@ -8,6 +8,7 @@ type Photo = {
   title: string;
   description: string;
   image_url: string;
+  created_at: string;
 };
 
 type PhotoListProps = {
@@ -26,6 +27,7 @@ function PhotoList({ photos }: PhotoListProps) {
           title={photo.title}
           description={photo.description}
           imageUrl={photo.image_url}
+          createdAt={photo.created_at}
         />
       ))}
       </div>

@@ -25,3 +25,8 @@
 .photo-card__description {
   color: #666;
 }
+.photo-card__date {
+  color: #999;
+  font-size: 14px;
+  margin-top: 8px;
+}
