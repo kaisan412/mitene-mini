@@ -1,6 +1,7 @@
 import PhotoList from "./components/PhotoList";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
+import "./App.css";
 
 //型定義
 type Photo = {
@@ -25,7 +26,9 @@ function App() {
   return (
     <>
       <Header />
-      <PhotoList photos={photos} />
+      <main className="main">
+        <PhotoList photos={photos} />
+      </main>
     </>
   );
 }

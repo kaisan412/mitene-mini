@@ -1,6 +1,7 @@
 //責務: 写真の並びを担当するコンポーネント
 
 import PhotoCard from "./PhotoCard";
+import "./PhotoList.css";
 
 type Photo = {
   id: number;
@@ -15,7 +16,10 @@ type PhotoListProps = {
 
 function PhotoList({ photos }: PhotoListProps) {
   return (
-    <>    
+    <section className="photo-list">    
+      <h2 className="photo-list__title">写真一覧</h2>
+
+      <div className="photo-list__items">
       {photos.map((photo) => (
         <PhotoCard
           key={photo.id}
@@ -24,7 +28,8 @@ function PhotoList({ photos }: PhotoListProps) {
           imageUrl={photo.image_url}
         />
       ))}
-    </>
+      </div>
+    </section>
   );
 }
 
