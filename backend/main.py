@@ -1,7 +1,42 @@
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
+from database import Base, SessionLocal, engine
+from models import Photo
+from schemas import PhotoCreate
+
 
 app = FastAPI()
+
+Base.metadata.create_all(bind=engine)
+
+def get_db():
+    db = SessionLocal()
+
+    try:
+        yield db
+    finally:
+        db.close()
+
+@app.get("/db-test")
+def db_test():
+    with engine.connect() as connection:
+        result = connection.execute(text("SELECT 1"))
+        return {"result": result.scalar()}
+
+@app.post("/photos")
+def create_photo(photo_data: PhotoCreate, db=Depends(get_db)):
+    photo = Photo(
+        title=photo_data.title,
+        description=photo_data.description,
+        image_url=photo_data.image_url,
+    )
+
+    db.add(photo)
+    db.commit()
+    db.refresh(photo)
+
+    return photo
 
 app.add_middleware(
     CORSMiddleware,
